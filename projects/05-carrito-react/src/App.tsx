@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { products } from './mocks/products.json'
+import { Products } from './components/Products'
+import { Filter } from './components/Filter'
+import { useFilter } from './Hooks/useFilter'
+import { Footer } from './components/Footer'
+import { Cart } from './components/Cart'
+import { CartProvider } from './Context/cart'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const {filteredProducts, categories} = useFilter()
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+   <CartProvider>
+        <h2>Carrito de la compra 🛒</h2>
+        <Filter max={products.reduce((max, product) => Math.max(max, product.price), 0)} options={categories({products})} />
+        <Cart />
+        <Products products={filteredProducts(products)}></Products>
+        <Footer/>
+   </CartProvider>
+   
   )
 }
 
