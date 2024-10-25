@@ -1,0 +1,24 @@
+{
+    "todosSave": [
+        {
+            "id": 1,
+            "title": "Repartir bebidas",
+            "completed": true
+        },
+        {
+            "id": 2,
+            "title": "Curso de React",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "title": "Gym",
+            "completed": false
+        }, 
+        {
+            "id": 4,
+            "title": "Prueba de Borrado",
+            "completed": false
+        }
+    ]
+}

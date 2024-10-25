@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./font/PublicSans-Variable.ttf');
+}
+
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Product Sans';
+}
+
+option {
+  font-family: 'Product Sans';
+}
+
+textarea {
+  resize: none !important;
+}
